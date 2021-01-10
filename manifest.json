@@ -2,5 +2,27 @@
     "name": "Accessibility App",
     "version": "1.0",
     "description": "Help people use the internet!",
-    "manifest_version": 2
+    "manifest_version": 2,
+    "web_accessible_resources": [
+        "overlay.html",
+        "msg_text_box.html",
+        "msg_icon_highlight.html",
+        "walkthru.js"
+    ],
+    "permissions": [
+        "activeTab"
+    ],
+    "content_scripts": [
+    {
+      "matches": ["http://*.facebook.com/*", "https://*.facebook.com/*", "https://facebook.com/*", "https://facebook.com/*"],
+      "run_at": "document_end",
+      "js": ["jquery.js", "contentScript.js"]
+    }
+    ],
+    "background":
+    {
+        "scripts": ["jquery.js"]
+    }
   }
+
+  
