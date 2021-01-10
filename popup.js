@@ -4,15 +4,49 @@
 
 'use strict';
 
-function click(e) {
-  chrome.tabs.executeScript(null,
-      {code:"document.body.style.backgroundColor='" + e.target.id + "'"});
+function closePopup(e) {
   window.close();
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  var divs = document.querySelectorAll('div');
-  for (var i = 0; i < divs.length; i++) {
-    divs[i].addEventListener('click', click);
+  var optionDivs = document.querySelectorAll('div.option');
+  for (var i = 0; i < optionDivs.length; i++) {
+
+    let div = optionDivs[i];
+
+    if (div.id == "message-button") {
+      div.addEventListener('click', handleMessageButtonClick);  
+
+    } else {
+      div.addEventListener('click', handleGeneralClick);  
+
+    }
   }
+
 });
+
+function handleMessageButtonClick(e) {
+
+  console.log("handling message button click");
+
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
+    chrome.tabs.sendMessage(tabs[0].id, {action: "open_message_box"}, function(response) {});  
+  });
+  closePopup(e);
+}
+
+function handleGeneralClick(e) {
+  console.log("handling general button click");
+
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
+
+    console.log("tabs: ", tabs);
+
+    chrome.tabs.sendMessage(tabs[0].id, {action: "upcoming_feature"}, function(response) {});  
+  });
+  closePopup(e);
+}
+
+
+
+

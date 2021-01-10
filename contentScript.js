@@ -29,9 +29,9 @@ function loadOverlay() {
         $(data).appendTo('body');
     });
 
-    $.get(chrome.extension.getURL('/walkthru.js'), function(data) {
-        $(data).appendTo('body');
-    });
+    // $.get(chrome.extension.getURL('/walkthru.js'), function(data) {
+    //     $(data).appendTo('body');
+    // });
 }
 
 function loadMessageBox() {
@@ -50,9 +50,6 @@ function loadMessageBox() {
         let msg_text_box = document.getElementById("msg-text-box");
         console.log("msg_text_box: ", msg_text_box);
     });    
-
-
-    
 }
 
 
@@ -107,14 +104,6 @@ function displayMsgButtonHighlight () {
     
     let rect = getMsgButtonCoords();
 
-    // let width = getWidth();
-    
-    // let top = rect.top + 50;
-    // let right = width - rect.right;
-
-    // console.log("top: ", top);
-    // console.log("right: ", right);
-
     let msg_button_highlight = document.getElementById("msg-button-highlight");
     
     console.log("msg_button_highlight: ", msg_button_highlight);
@@ -145,16 +134,22 @@ window.addEventListener('load', (event) => {
     loadMsgButtonHighlight();
 });
 
-// setTimeout(() => {
-//     displayOverlay();
-//     displayMessageBox();
-//     displayMsgButtonHighlight();
-// }, 2000);
+function displayAll() {
+    displayOverlay();
+    displayMessageBox();1
+    displayMsgButtonHighlight();
+}
 
-
-
-// setTimeout(() => {
-//     hideOverlay();
-//     hideMessageBox();
-//     hideMsgButtonHighlight();
-// }, 10000)
+chrome.runtime.onMessage.addListener( function(request, sender, sendResponse) {
+    
+    console.log("request: ", request);
+    console.log("received action: ", request.action);
+    
+    if (request.action == "open_message_box") {
+        displayAll();
+        return true;
+    } else {
+        alert("That feature will be available soon! :)");
+        return true
+    }
+});
