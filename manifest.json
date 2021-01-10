@@ -1,6 +1,14 @@
 {
-    "name": "Accessibility App",
-    "version": "1.0",
-    "description": "Help people use the internet!",
-    "manifest_version": 2
-  }
+  "name": "Walkthru",
+  "version": "1.0",
+  "description": "Help people use the internet!",
+  "permissions": [
+    "activeTab"
+  ],
+  "browser_action": {
+      "default_title": "Walkthru",
+      "default_icon": "icon.png",
+      "default_popup": "popup.html"
+  },
+  "manifest_version": 2
+}
