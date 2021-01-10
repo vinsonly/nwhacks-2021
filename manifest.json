@@ -1,5 +1,5 @@
 {
-    "name": "Accessibility App",
+    "name": "Walkthru",
     "version": "1.0",
     "description": "Help people use the internet!",
     "manifest_version": 2,
@@ -22,7 +22,11 @@
     "background":
     {
         "scripts": ["jquery.js"]
+    },
+    "browser_action": {
+        "default_title": "Walkthru",
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
     }
   }
-
-  
+}

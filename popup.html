@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Set Page Color Popup</title>
+    <style>
+    body {
+      overflow: hidden;
+      margin: 0px;
+      padding: 0px;
+      background: white;
+    }
+    div {
+      text-align: center;
+      font-family: sans-serif;
+      font-size: 0.8em;
+      width: 300px;
+    }
+    hr {
+      margin-bottom: 16px;
+    }
+    .container {
+      padding: 24px 0 16px;
+    }
+    .option-container {
+      margin-bottom: 16px;
+    }
+    .option {
+      cursor: pointer;
+      width: 280px;
+      border: 1px solid rgb(189, 189, 189);
+      border-radius: 8px;
+      margin: 8px 0 0 10px;
+    }
+    .option:hover {
+      background: #cccccc;
+    }
+    .title {
+      font-size: 12px;
+      color: rgb(126, 126, 126);
+      font-weight: bolder;
+      margin-bottom: 16px;
+    }
+    .option-title {
+      font-size: 14px;
+      color: rgb(45, 90, 130);
+      font-weight: bolder;
+    }
+    .alt-text {
+      font-size: 12px;
+      color: rgb(126, 126, 126);
+      padding: none;
+      padding: 0;
+      margin: 0;
+    }
+    .suggestion {
+      cursor: pointer;
+      font-size: 12px;
+      color: rgb(117, 117, 205);
+      font-weight: bolder;
+      padding: 0;
+      margin: 12px;
+    }
+    .mic {
+      cursor: pointer;
+      margin: 28px 0 18px;
+    }
+    </style>
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <p class="title">Popular Actions</p>
+      <div class="option-container">
+        <div class="option">
+          <p class="option-title">Message Someone</p>
+        </div>
+        <div class="option">
+          <p class="option-title">Post a Photo</p>
+        </div>
+        <div class="option">
+          <p class="option-title">Find a Friend</p>
+        </div>
+        <div class="option">
+          <p class="option-title">Share an Update</p>
+        </div>
+        <div class="option">
+          <p class="option-title">Delete Account</p>
+        </div>
+      </div>
+      <div class="suggestion-container">
+        <p class="alt-text">Don't see what you're looking for?</p>
+        <p class="suggestion">Make a suggestion</p>
+      </div>
+      <hr>
+      <div class="voice-command">
+        <p class="alt-text">Or turn on the mic and say</p>
+        <p class="alt-text">what you need!</p>
+      </div>
+      <img class="mic" src="mic.png" height="40"/>
+    </div>
+  </body>
+</html>
