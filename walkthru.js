@@ -61,14 +61,6 @@ function displayMsgButtonHighlight () {
     
     let rect = getMsgButtonCoords();
 
-    // let width = getWidth();
-    
-    // let top = rect.top + 50;
-    // let right = width - rect.right;
-
-    // console.log("top: ", top);
-    // console.log("right: ", right);
-
     let msg_button_highlight = document.getElementById("msg-button-highlight");
     
     console.log("msg_button_highlight: ", msg_button_highlight);
@@ -82,7 +74,7 @@ function displayMsgButtonHighlight () {
 }
 
 function hideMsgButtonHighlight () {
-    let msg_button_highlight = document.getElementById("msg_button_highlight");
+    let msg_button_highlight = document.getElementById("msg-button-highlight");
     msg_button_highlight.style.display = "none";
 }
 
@@ -92,9 +84,10 @@ function hideAll() {
     hideMsgButtonHighlight();
 }
 
+function displayAll() {
+    console.log("calling display all");
+    displayOverlay();
+    displayMessageBox();
+    displayMsgButtonHighlight();
+}
 
-// setTimeout(() => {
-//     hideOverlay();
-//     hideMessageBox();
-//     hideMsgButtonHighlight();
-// }, 10000)

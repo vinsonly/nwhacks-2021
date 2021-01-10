@@ -98,7 +98,7 @@ function loadMsgButtonHighlight () {
         $(data).appendTo('body');
         console.log("data: ", data);
 
-        let msg_button_highlight = document.getElementById("msg_button_highlight");
+        let msg_button_highlight = document.getElementById("msg-button-highlight");
         console.log("msg_button_highlight: ", msg_button_highlight);
     });    
 }
@@ -145,12 +145,11 @@ window.addEventListener('load', (event) => {
     loadMsgButtonHighlight();
 });
 
-
-setTimeout(() => {
-    displayOverlay();
-    displayMessageBox();
-    displayMsgButtonHighlight();
-}, 2000);
+// setTimeout(() => {
+//     displayOverlay();
+//     displayMessageBox();
+//     displayMsgButtonHighlight();
+// }, 2000);
 
 
 
